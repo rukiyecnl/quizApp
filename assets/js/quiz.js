@@ -1,5 +1,4 @@
-let data = {
-    "quizzes": [
+let quizzes = [
         {
             "id":0,
             "title": "HTML",
@@ -429,22 +428,303 @@ let data = {
             ]
         }
     ]
-}
 
-console.log(data.quizzes[0].id);
+// console.log(quizzes[0]);
+// const rightSide = document.querySelector(".rightSide");
+// const titles = document.querySelectorAll(".title");
+// const konular = document.querySelector(".konular");
+// const cevaplar = document.querySelector(".cevaplar");
+// const btn = document.querySelector("button");
+// cevaplar.style.display = "none";
+
+// const cevapA = document.querySelector(".cevapA");
+// const cevapB = document.querySelector(".cevapB");
+// const cevapC = document.querySelector(".cevapC");
+// const cevapD = document.querySelector(".cevapD");
+
+// const options = document.querySelectorAll(".options");
+
+// function bindEvents(){
+//     for (const option of options) {
+//         option.addEventListener("click", showOption)
+//     }
+    
+// }
+
+// function getInfo(){
+    
+//     for (const title of titles) {
+//         title.addEventListener("click", e => {
+//             const deger = Number(e.target.dataset.contentid);
+//             if (deger == quizzes[deger].id) {
+//                 konular.style.display = "none";
+//                 cevaplar.style.display = "block";
+//                 showOptions(deger);
+//             }
+//         })
+//     }    
+// } 
+
+// function showOption(){
+//     btn.addEventListener("click", () => {
+//         console.log(this);
+//        this.classList.add("correct"); 
+//     })
+    
+// }
+
+// let counter = 0;
+// function showOptions(value){
+//     bindEvents();
+
+//     cevapA.innerText = quizzes[value].questions[0].options[0];
+//     cevapB.innerText = quizzes[value].questions[0].options[1];
+//     cevapC.innerText = quizzes[value].questions[0].options[2];
+//     cevapD.innerText = quizzes[value].questions[0].options[3];
+
+
+    
+
+
+//     for (let i = 0; i < quizzes[value].questions.length; i++) {
+       
+//         for (let k = 0; k < quizzes[value].questions[counter].options.length; k++) {
+
+
+//             btn.addEventListener("click", function(){
+                
+//             });
+
+
+//             // for (const option of options) {
+//             //     // console.log(option);
+//             //     option.addEventListener("click", function(e){
+//             //         e.preventDefault();
+//             //         console.log(counter);
+//             //         if (this.innerText === quizzes[value].questions[counter].answer) {
+//             //             console.log("hello");
+//             //         }
+//             //         else{
+//             //             console.log("yanlış");
+//             //         }
+                    
+//             //         cevapA.innerText = quizzes[value].questions[counter+1].options[0];
+//             //         cevapB.innerText = quizzes[value].questions[counter+1].options[1];
+//             //         cevapC.innerText = quizzes[value].questions[counter+1].options[2];
+//             //         cevapD.innerText = quizzes[value].questions[counter+1].options[3];
+//             //         console.log(counter);
+//             //     })
+//             // }
+//             console.log(quizzes[value].questions[k].options.length);
+//         }
+//         counter++;
+//     }
+
+//     //cevapA.innerHTML = value.questions[0];
+
+// }
+// // function kontrolBtn(value){
+// //     cevapA.innerText = quizzes[value].questions[counter].options[0];
+// //     cevapB.innerText = quizzes[value].questions[counter].options[1];
+// //     cevapC.innerText = quizzes[value].questions[counter].options[2];
+// //     cevapD.innerText = quizzes[value].questions[counter].options[3];
+// // }
+
+// function getValues(){
+//     console.log(this.innerText);
+//     if (this.innerText === quizzes[value].questions[i].answer) {
+//         console.log("hell");
+//     }
+// }
+
+// // function deneme(value) {
+// //     const options = document.querySelector(".options");
+// //     for (const option of options) {
+        
+// //     }
+
+// //     showOptions(value);
+// // }
+
 
 const titles = document.querySelectorAll(".title");
-for (const title of titles) {
-    title.addEventListener("click", e => {
-        const deger = Number(e.target.dataset.contentid);
-        if (deger == data.quizzes[deger].id) {
-            e.target.innerText = "sdffd";
-        }
+const konular = document.querySelector(".konular");
+const cevaplar = document.querySelector(".cevaplar");
+const options = document.querySelectorAll(".options");
+const cevapA = document.querySelector(".cevapA");
+const cevapB = document.querySelector(".cevapB");
+const cevapC = document.querySelector(".cevapC");
+const cevapD = document.querySelector(".cevapD");
+const btn = document.querySelector(".submitBtn");
+const nextbtn = document.querySelector(".nextBtn");
+const leftSide = document.querySelector(".leftSide");
+const secondLeftSide = document.querySelector(".secondLeftSide");
+secondLeftSide.style.display = "none";
+nextbtn.style.display= "none";
+
+cevaplar.style.display = "none";
+let counter = 0;
+function bindEvents(){
+
+    for (const title of titles) {
+        title.addEventListener("click", chooseContent);
+    }
+    // for (const option of options) {
+    //     option.addEventListener("click", chooseOption);
+    // }
+}
+function chooseContent(){
+
+    const value = Number(this.dataset.contentid);
+    konular.style.display = "none";
+    cevaplar.style.display = "flex";
+    if (value === quizzes[value].id) {
+        // showQuestion(value);
+        // console.log(counter);
+
+        leftSide.style.display = "none";
+        secondLeftSide.style.display = "block";
+        secondLeftSide.innerHTML = `
+                                        <p>Question ${counter + 1} of 10</p>
+                                        <p class="questionTitle">${quizzes[value].questions[counter].question}</p>
+                                        `
+
+        cevapA.innerText = quizzes[value].questions[counter].options[0];
+        cevapB.innerText = quizzes[value].questions[counter].options[1];
+        cevapC.innerText = quizzes[value].questions[counter].options[2];
+        cevapD.innerText = quizzes[value].questions[counter].options[3];
+        // for (const z of quizzes[value].questions) {
+        //     chooseOption();
+        // }
+        chooseOption(value);
+        // btn.addEventListener("click", function(){
+        //     for (const option of options) {
+        //         if (option.classList.contains("true")) {
+        //             option.classList.add("correct");
+        //         }
+        //         else{
+        //             option.classList.add("false");
+        //         }
+        //     } 
+        //     // kontrol = 2;
+        //     counter++;
+        //     console.log(counter);
+        //     showQuestion(value) ;   
+        // })
+        checkState(value);
+        nextQuestion(value);
+    }
+    
+
+}
+
+function chooseOption(value){
+    for (const option of options) {
+        option.addEventListener("click", function(){
+            if(this.innerText === quizzes[value].questions[counter].answer){
+                console.log("geldii");
+                this.classList.add("true");
+
+            }
+            else{
+                console.log("yanlış");
+                this.classList.add("false");
+            }
+            this.classList.add("chosed");
+        });
+    }
+    // checkState(value);
+    
+}
+let kontrol = 1;
+let nb;
+function showQuestion(value){
+    leftSide.style.display = "none";
+    // do {
+    //     // counter++;
+    //     console.log(counter);
+    //     cevapA.innerText = quizzes[value].questions[counter].options[0];
+    //     cevapB.innerText = quizzes[value].questions[counter].options[1];
+    //     cevapC.innerText = quizzes[value].questions[counter].options[2];
+    //     cevapD.innerText = quizzes[value].questions[counter].options[3];
+
+    //     chooseOption(value);
+    //     checkState(); 
+
+        
+    // } while (counter<10);
+
+        // console.log(quizzes[value].questions[counter].options[0]);
+        secondLeftSide.style.display = "block";
+        secondLeftSide.innerHTML = `
+                                    <p>Question ${counter + 1} of 10</p>
+                                    <p class="questionTitle">${quizzes[value].questions[counter].question}</p>
+                                    `
+
+        cevapA.innerText = quizzes[value].questions[counter].options[0];
+        cevapB.innerText = quizzes[value].questions[counter].options[1];
+        cevapC.innerText = quizzes[value].questions[counter].options[2];
+        cevapD.innerText = quizzes[value].questions[counter].options[3];  
+        
+
+        // chooseOption(value);
+        // checkState(); 
+        console.log(counter);             
+    
+
+
+}
+function checkState(){
+
+    btn.addEventListener("click", function(){
+        for (const option of options) {
+            if (option.classList.contains("true")) {
+                option.classList.remove("chosed");
+                option.classList.add("correct");
+            }
+            else if(option.classList.contains("false")){
+                option.classList.remove("chosed");
+                option.classList.add("uncorrect");
+            }
+        } 
+        // kontrol = 2;
+        counter++;
+        console.log(counter);
+        // showQuestion(value)  
+        btn.style.display = "none";
+        nextbtn.style.display = "block";
     })
+    
+    
+    // kontrol = 1;
+}
+function nextQuestion(value){
+    nextbtn.addEventListener("click", function(){
+        btn.style.display = "block";
+        nextbtn.style.display = "none";    
+
+        for (const option of options) {
+            if (option.classList.contains("true")) {
+                option.classList.remove("true");
+                option.classList.remove("correct");
+            }
+            else if(option.classList.contains("false")){
+                option.classList.remove("false");
+                option.classList.remove("uncorrect");
+            }
+            option.classList.remove("chosed");
+        }
+        showQuestion(value); 
+        
+        
+
+    })
+    
 }
 
 function init(){
-
+    bindEvents();
+   
 }
 
 init();

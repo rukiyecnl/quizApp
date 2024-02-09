@@ -1,0 +1,104 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(230, 229, 230, 0.841);
+    background-image: url("../img/ellipseUst.png"), url("../img/ellipseAlt.png");
+    background-size: 438px 564px, 540px 558px;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left top, right bottom;
+
+    font-family: "Rubik", sans-serif;
+    font-style: normal;
+}
+.container {
+    width: 1440px;
+    height: 900px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 131px;
+    padding: 222px 140px;
+}
+
+.correct {
+    border: 3px solid rgba(38, 215, 130, 1);
+}
+.uncorrect {
+    border: 3px solid rgba(238, 84, 84, 1);
+}
+.normal {
+    background-color: aliceblue;
+}
+.chosed {
+    border: 3px solid rgba(167, 41, 245, 1);
+}
+
+/* left side */
+.leftSide {
+    width: 465px;
+    & > p {
+        font-size: 20px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 30px;
+    }
+    .welcome {
+        font-size: 64px;
+        font-weight: 300;
+        line-height: 64px;
+        color: rgba(49, 62, 81, 1);
+
+    }
+    .secondHead {
+        font-size: 64px;
+        font-weight: 500;
+        line-height: 64px;
+        margin-bottom: 25px
+    }  
+}
+
+/* right side */
+.rightSide {
+    width: 48.62%;
+
+}
+.title , .options {
+    width: 100%;
+    height: 92px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 18px 20px 18px 20px;
+    border-radius: 24px;
+
+}
+.title {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+    color: rgba(49, 62, 81, 1);
+
+}
+.konular , .cevaplar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+button {
+    height: Hug (92px);
+    padding: 32px;
+    border-radius: 24px;
+    border: none;
+    background-color: rgba(167, 41, 245, 1);
+    color: white;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 28px;
+}
+

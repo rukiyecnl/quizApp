@@ -1,17 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/quiz.css">
 </head>
 <body>
     <div class="container">
-        <p class="title" data-contentid="0">HTML</p>
-        <p class="title" data-contentid="1">CSS</p>
-        <p class="title" data-contentid="2">JavaScript</p>
-        <p class="title" data-contentid="3">Accessibility</p>
+        <div class="leftSide">
+            <p class="welcome">Welcome to the</p>
+            <p class="secondHead">Frontend Quiz!</p>
+            <p>Pick a subject to get started.</p>
+        </div>
+        <div class="secondLeftSide">
+            
+        </div>
+
+
+        <div class="rightSide">
+            <div class="konular">
+                <div class="title" data-contentid="0"><img src="assets/img/htmlIcon.png" alt="html">HTML</div>
+                <div class="title" data-contentid="1"><img src="assets/img/cssIcon.png" alt="css">CSS</div>
+                <div class="title" data-contentid="2"><img src="assets/img/jsIcon.png" alt="js">JavaScript</div>
+                <div class="title" data-contentid="3"><img src="assets/img/accessIcon.png" alt="access">Accessibility</div>
+            </div>
+
+            <div class="cevaplar">
+                <div class="cevapA options">dsf</div>
+                <div class="cevapB options">sdf</div>
+                <div class="cevapC options">sdf</div>
+                <div class="cevapD options">df</div>
+                <button class="submitBtn">submit</button>
+                <button class="nextBtn">next</button>
+            </div>            
+        </div>
+
     </div>
 
     <script src="assets/js/quiz.js"></script>
