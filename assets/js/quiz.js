@@ -583,9 +583,9 @@ function chooseContent(){
         // console.log(counter);
 
         leftSide.style.display = "none";
-        secondLeftSide.style.display = "block";
+        secondLeftSide.style.display = "flex";
         secondLeftSide.innerHTML = `
-                                        <p>Question ${counter + 1} of 10</p>
+                                        <p class="sayi">Question ${counter + 1} of 10</p>
                                         <p class="questionTitle">${quizzes[value].questions[counter].question}</p>
                                         `
 
@@ -623,14 +623,14 @@ function chooseOption(value){
         option.addEventListener("click", function(){
             if(this.innerText === quizzes[value].questions[counter].answer){
                 console.log("geldii");
-                this.classList.add("true");
+                this.parentElement.classList.add("true");
 
             }
             else{
                 console.log("yanlış");
-                this.classList.add("false");
+                this.parentElement.classList.add("false");
             }
-            this.classList.add("chosed");
+            this.parentElement.classList.add("chosed");
         });
     }
     // checkState(value);
@@ -655,9 +655,9 @@ function showQuestion(value){
     // } while (counter<10);
 
         // console.log(quizzes[value].questions[counter].options[0]);
-        secondLeftSide.style.display = "block";
+        secondLeftSide.style.display = "flex";
         secondLeftSide.innerHTML = `
-                                    <p>Question ${counter + 1} of 10</p>
+                                    <p class="sayi">Question ${counter + 1} of 10</p>
                                     <p class="questionTitle">${quizzes[value].questions[counter].question}</p>
                                     `
 
@@ -678,13 +678,13 @@ function checkState(){
 
     btn.addEventListener("click", function(){
         for (const option of options) {
-            if (option.classList.contains("true")) {
-                option.classList.remove("chosed");
-                option.classList.add("correct");
+            if (option.parentElement.classList.contains("true")) {
+                option.parentElement.classList.remove("chosed");
+                option.parentElement.classList.add("correct");
             }
-            else if(option.classList.contains("false")){
-                option.classList.remove("chosed");
-                option.classList.add("uncorrect");
+            else if(option.parentElement.classList.contains("false")){
+                option.parentElement.classList.remove("chosed");
+                option.parentElement.classList.add("uncorrect");
             }
         } 
         // kontrol = 2;
@@ -704,15 +704,15 @@ function nextQuestion(value){
         nextbtn.style.display = "none";    
 
         for (const option of options) {
-            if (option.classList.contains("true")) {
-                option.classList.remove("true");
-                option.classList.remove("correct");
+            if (option.parentElement.classList.contains("true")) {
+                option.parentElement.classList.remove("true");
+                option.parentElement.classList.remove("correct");
             }
-            else if(option.classList.contains("false")){
-                option.classList.remove("false");
-                option.classList.remove("uncorrect");
+            else if(option.parentElement.classList.contains("false")){
+                option.parentElement.classList.remove("false");
+                option.parentElement.classList.remove("uncorrect");
             }
-            option.classList.remove("chosed");
+            option.parentElement.classList.remove("chosed");
         }
         showQuestion(value); 
         
